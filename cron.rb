@@ -1,4 +1,4 @@
-#!ruby -Ku
+#!/usr/bin/ruby -Ku
 
 TARGET_ACCOUNTS = %w!nicklegr 1000favs_RT 1000favs 100favs_RT 100favs!
 
@@ -37,6 +37,6 @@ TARGET_ACCOUNTS.each do |screen_name|
     :friends_count => user_data.friends_count,
     :followers_count => user_data.followers_count,
     :statuses_count => user_data.statuses_count,
-    :listed_count => user_data.listed_count,
+    :listed_count => user_data.listed_count
   )
 end
