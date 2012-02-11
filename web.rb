@@ -19,6 +19,8 @@ get '/' do
   users.each do |user|
     rows = user.user_infos.map do |e| "['#{e.created_at.strftime("%m-%d %H:%M")}', #{e.followers_count}]" end
 
+    current_data = user.user_infos.first(:order => "created_at desc")
+
     ret += <<-EOD
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'date');
@@ -29,7 +31,7 @@ get '/' do
 
             var options = {
               width: 800, height: 360,
-              title: '#{user.screen_name}',
+              title: '#{user.screen_name} - #{current_data.followers_count} followers',
               vAxis: {title: 'Followers',  titleTextStyle: {color: 'black'}},
               legend: {position: 'none'}
             };
