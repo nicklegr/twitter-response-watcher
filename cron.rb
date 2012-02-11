@@ -4,23 +4,7 @@ TARGET_ACCOUNTS = %w!nicklegr 1000favs_RT 1000favs 100favs_RT 100favs 1000Retwee
 
 require 'pp'
 require 'twitter'
-require 'active_record'
-
-ActiveRecord::Base.establish_connection(
-  :adapter => 'postgresql',
-  :host => 'localhost',
-  :username => 'twitter_response_watcher',
-  :password => 'twitter_response_watcher',
-  :database => 'twitter-response-watcher'
-)
-
-class User < ActiveRecord::Base
-  has_many :user_infos
-end
-
-class UserInfo < ActiveRecord::Base
-  belongs_to :users
-end
+require './db'
 
 TARGET_ACCOUNTS.each do |screen_name|
   user_data = Twitter.user(screen_name)
