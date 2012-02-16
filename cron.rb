@@ -1,6 +1,6 @@
 #!/usr/bin/ruby -Ku
 
-TARGET_ACCOUNTS = %w!nicklegr 1000favs_RT 1000favs 100favs_RT 100favs 1000Retweets_RT 1000Retweets!
+TARGET_ACCOUNTS = %w!nicklegr 1000favs_RT 1000favs 100favs_RT 100favs 1000Retweets_RT 1000Retweets omosiro_tweetRT omosiro_tweet!
 
 require 'pp'
 require 'twitter'
