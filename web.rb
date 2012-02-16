@@ -52,6 +52,8 @@ get '/' do
         <div id='100favs'></div>
         <div id='1000Retweets_RT'></div>
         <div id='1000Retweets'></div>
+        <div id='omosiro_tweetRT'></div>
+        <div id='omosiro_tweet'></div>
         <div id='nicklegr'></div>
       </body>
     </html>
