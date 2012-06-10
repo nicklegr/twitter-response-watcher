@@ -60,6 +60,8 @@ get '/' do
         <div id='omosiro_tweetRT'></div>
         <div id='omosiro_tweet'></div>
         <div id='nicklegr'></div>
+        <div id='1000fav'></div>
+        <div id='3000retweet'></div>
       </body>
     </html>
   EOD
