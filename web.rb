@@ -14,10 +14,15 @@ get '/' do
           function drawChart() {
   EOD
   
-  users = User.find(:all)
+  users = User.find(:all,
+    :include => [:user_infos],
+    :conditions => [ "user_infos.created_at >= current_timestamp - cast('2 week' as interval)" ],
+  )
 
   users.each do |user|
-    rows = user.user_infos.map do |e| "['#{e.created_at.strftime("%m-%d %H:%M")}', #{e.followers_count}]" end
+    rows = user.user_infos.map do |e|
+      "['#{e.created_at.strftime("%m-%d %H:%M")}', #{e.followers_count}]"
+    end
 
     current_data = user.user_infos.first(:order => "created_at desc")
 
