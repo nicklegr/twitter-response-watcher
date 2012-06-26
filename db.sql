@@ -22,3 +22,5 @@ create table user_infos (
 );
 grant all on user_infos to twitter_response_watcher;
 grant update on sequence user_infos_id_seq to twitter_response_watcher;
+
+CREATE INDEX "created_at" ON user_infos USING BTREE ("created_at")
