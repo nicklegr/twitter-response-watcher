@@ -20,7 +20,13 @@ get '/' do
   )
 
   users.each do |user|
-    rows = user.user_infos.map do |e|
+    disp_user_infos = []
+    size = user.user_infos.size
+    for i in 0..99
+      disp_user_infos << user.user_infos[size * i / 100]
+    end
+
+    rows = disp_user_infos.map do |e|
       "['#{e.created_at.strftime("%m-%d %H:%M")}', #{e.followers_count}]"
     end
 
