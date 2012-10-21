@@ -16,7 +16,7 @@ get '/' do
   
   users = User.find(:all,
     :include => [:user_infos],
-    :conditions => [ "user_infos.created_at >= current_timestamp - cast('2 week' as interval)" ],
+    :conditions => [ "extract(hour from user_infos.created_at) < 1 and extract(minute from user_infos.created_at) < 11" ],
   )
 
   users.each do |user|
